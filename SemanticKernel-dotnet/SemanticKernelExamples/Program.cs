@@ -45,7 +45,7 @@ var embeddingGenerationServiceDecorator = new AzureEmbeddingGenerationServiceDec
 var memoryStore = new VolatileMemoryStore();
 var textMemory = new SemanticTextMemory(memoryStore, embeddingGenerationServiceDecorator);
 await textMemory.SaveInformationAsync("quotes", id: "quote1", text: "All the world's a stage, and all the men and women merely players.", description: "William Shakespeare");
-await textMemory.SaveInformationAsync("quotes", id: "quote2", text: "I`ve been writing this article for a long time", description: "Andrew");
+await textMemory.SaveInformationAsync("quotes", id: "quote2", text: "I`ve been writing this article for a long time", description: "VictorGu");
 
 aiServiceCollection.SetService<IChatCompletion>(()=> azureChatCompletionDecorator);
 aiServiceCollection.SetService<ITextCompletion>(() => azureChatCompletionDecorator);
@@ -95,7 +95,7 @@ while (true)
     {
         var context = kernel.CreateNewContext();
         context.Variables.TryAdd("text", input);
-        context.Variables.TryAdd("name", "Andrew");
+        context.Variables.TryAdd("name", "VictorGu");
         context.Variables.TryAdd("chars", "aeiou");
 
         var updatedInput = await promptTemplateEngine.RenderAsync(inlinePrompt, context);
